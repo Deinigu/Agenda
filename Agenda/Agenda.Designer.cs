@@ -43,8 +43,8 @@
             modificarButton = new Button();
             guardarButton = new Button();
             cancelarButton = new Button();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            contactosDataGridView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)contactosDataGridView).BeginInit();
             SuspendLayout();
             // 
             // idLabel
@@ -81,6 +81,7 @@
             // 
             // fechaDateTimePicker
             // 
+            fechaDateTimePicker.Format = DateTimePickerFormat.Short;
             fechaDateTimePicker.Location = new Point(217, 141);
             fechaDateTimePicker.Name = "fechaDateTimePicker";
             fechaDateTimePicker.Size = new Size(300, 31);
@@ -157,12 +158,12 @@
             // 
             // guardarButton
             // 
-            this.guardarButton.Location = new Point(743, 376);
-            this.guardarButton.Name = "guardarButton";
-            this.guardarButton.Size = new Size(112, 34);
-            this.guardarButton.TabIndex = 13;
-            this.guardarButton.Text = "Guardar";
-            this.guardarButton.UseVisualStyleBackColor = true;
+            guardarButton.Location = new Point(743, 376);
+            guardarButton.Name = "guardarButton";
+            guardarButton.Size = new Size(112, 34);
+            guardarButton.TabIndex = 13;
+            guardarButton.Text = "Guardar";
+            guardarButton.UseVisualStyleBackColor = true;
             // 
             // cancelarButton
             // 
@@ -173,24 +174,24 @@
             cancelarButton.Text = "Cancelar";
             cancelarButton.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // contactosDataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(35, 476);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.RowTemplate.Height = 33;
-            dataGridView1.Size = new Size(1339, 307);
-            dataGridView1.TabIndex = 15;
+            contactosDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            contactosDataGridView.Location = new Point(35, 476);
+            contactosDataGridView.Name = "contactosDataGridView";
+            contactosDataGridView.RowHeadersWidth = 62;
+            contactosDataGridView.RowTemplate.Height = 33;
+            contactosDataGridView.Size = new Size(1339, 307);
+            contactosDataGridView.TabIndex = 15;
             // 
             // Agenda
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1401, 807);
-            Controls.Add(dataGridView1);
+            Controls.Add(contactosDataGridView);
             Controls.Add(cancelarButton);
-            Controls.Add(this.guardarButton);
+            Controls.Add(guardarButton);
             Controls.Add(modificarButton);
             Controls.Add(eliminarButton);
             Controls.Add(anyadirButton);
@@ -206,7 +207,7 @@
             Controls.Add(idLabel);
             Name = "Agenda";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)contactosDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -229,6 +230,6 @@
         private Button button4;
         private Button guardarButton;
         private Button cancelarButton;
-        private DataGridView dataGridView1;
+        private DataGridView contactosDataGridView;
     }
 }

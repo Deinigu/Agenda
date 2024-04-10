@@ -1,8 +1,8 @@
 namespace Agenda
 {
-    public partial class Form1 : Form
+    public partial class Agenda : Form
     {
-        public Form1()
+        public Agenda()
         {
             InitializeComponent();
         }

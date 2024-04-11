@@ -28,5 +28,19 @@ namespace Agenda
         {
 
         }
+
+        private void contactosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Ensure the row index is valid
+            {
+                DataGridViewRow row = this.contactosDataGridView.Rows[e.RowIndex];
+
+                idTextBox.Text = row.Cells["Id"].Value.ToString();
+                nombreTextBox.Text = row.Cells["Nombre"].Value.ToString();
+                fechaDateTimePicker.Text = row.Cells["FechaNacimiento"].Value.ToString();
+                telefonoTextBox.Text = row.Cells["Telefono"].Value.ToString();
+                observacionesTextBox1.Text = row.Cells["Observaciones"].Value.ToString();
+            }
+        }
     }
 }

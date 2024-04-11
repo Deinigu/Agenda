@@ -76,4 +76,41 @@ internal class Repository
             }
         }
     }
+
+    // UPDATE Contacto
+    public void EditarContacto(int id, string nombre, DateTime fechaNacimiento, int telefono, string observaciones)
+    {
+        SqlConnection? connection = null;
+        try
+        {
+            using (connection = Context.OpenSQLConnetion())
+            {
+                string query = "UPDATE Agenda.dbo.Contactos SET Nombre = @Nombre, FechaNacimiento = @FechaNacimiento, Telefono = @Telefono, Observaciones = @Observaciones WHERE Id = @Id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    command.Parameters.AddWithValue("@Nombre", nombre);
+                    command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento);
+                    command.Parameters.AddWithValue("@Telefono", telefono);
+                    command.Parameters.AddWithValue("@Observaciones", observaciones);
+
+                    command.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("\n¡Datos actualizados con éxito!\n");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"\n Hubo un problema al actualizar los datos. {ex.Message}\n");
+        }
+        finally
+        {
+            if (connection != null)
+            {
+                Context.CloseSQLConnection(connection);
+            }
+        }
+    }
 }

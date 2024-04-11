@@ -46,7 +46,13 @@ namespace Agenda
         // Guardar
         private void guardarButton_Click(object sender, EventArgs e)
         {
-            // TODO: INSERT o UPDATE
+            // TODO:UPDATE
+
+            // Nuevo Contacto
+            if (string.IsNullOrEmpty(idTextBox.Text)) 
+            {
+                NuevoContacto();
+            }
             ReiniciarForm();
             PonerReadOnly();
             HabilitarBotones();
@@ -91,10 +97,52 @@ namespace Agenda
 
         // METODOS AUXILIARES
 
+        // Nuevo contacto: Control de errores y llamar a repo
+        private void NuevoContacto()
+        {
+            string nombre;
+            DateTime fechaNacimiento;
+            int telefono;
+            string observaciones;
+
+            // Nombre
+            nombre = nombreTextBox.Text;
+            if (string.IsNullOrEmpty(nombre))
+            {
+                nombre = "sin_nombre";
+            }
+
+            // Fecha Nacimiento
+            if (string.IsNullOrEmpty(fechaDateTimePicker.Text))
+            {
+                fechaNacimiento = DateTime.Now;
+
+            }
+            else
+            {
+                fechaNacimiento = DateTime.Parse(fechaDateTimePicker.Text);
+            }
+
+            // Telefono
+            if (string.IsNullOrEmpty(telefonoTextBox.Text))
+            {
+                telefono = 0;
+
+            }
+            else
+            {
+                telefono = int.Parse(telefonoTextBox.Text);
+            }
+
+            // Observaciones
+            observaciones = observacionesTextBox1.Text;
+
+            this.rep.NewContacto(nombre, fechaNacimiento, telefono, observaciones);
+        }
+
         // Formulario en ReadOnly
         private void PonerReadOnly()
         {
-            idTextBox.ReadOnly = true;
             nombreTextBox.ReadOnly = true;
             fechaDateTimePicker.Enabled = false; // Distinto para las fechas
             telefonoTextBox.ReadOnly = true;
@@ -104,7 +152,6 @@ namespace Agenda
         // Formulario sin ReadOnly
         private void QuitarReadOnly()
         {
-            idTextBox.ReadOnly = false;
             nombreTextBox.ReadOnly = false;
             fechaDateTimePicker.Enabled = true; // Distinto para las fechas
             telefonoTextBox.ReadOnly = false;
@@ -129,6 +176,7 @@ namespace Agenda
             eliminarButton.Enabled = true;
 
             contactosDataGridView.Enabled = true;
+            contactosDataGridView.Refresh();
         }
 
         private void DeshabilitarBotones()

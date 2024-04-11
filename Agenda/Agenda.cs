@@ -51,7 +51,7 @@ namespace Agenda
             // TODO:UPDATE
 
             // Nuevo Contacto
-            if (string.IsNullOrEmpty(idTextBox.Text))
+            if (string.IsNullOrEmpty(idTextBox.Text) && !nuevoButton.Enabled)
             {
                 NuevoContacto();
             }

@@ -18,7 +18,11 @@ namespace Agenda
             RecargarContactos();
         }
 
-        // GRID VIEW
+        /// <summary>
+        /// GRID VIEW
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         // Click en el Grid View
         private void contactosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -35,7 +39,11 @@ namespace Agenda
             }
         }
 
-        // BOTONES
+        /// <summary>
+        /// BOTONES
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         // Guardar
         private void guardarButton_Click(object sender, EventArgs e)
@@ -43,15 +51,18 @@ namespace Agenda
             // TODO:UPDATE
 
             // Nuevo Contacto
-            if (string.IsNullOrEmpty(idTextBox.Text))
+            if (string.IsNullOrEmpty(idTextBox.Text) && !nuevoButton.Enabled)
             {
                 NuevoContacto();
+            }
+            else if(!modificarButton.Enabled)
+            {
+                EditarContacto();
             }
             ReiniciarForm();
             PonerReadOnly();
             HabilitarBotones();
         }
-
 
         // Cancelar
         private void cancelarButton_Click(object sender, EventArgs e)
@@ -89,7 +100,9 @@ namespace Agenda
             QuitarReadOnly();
         }
 
-        // METODOS AUXILIARES
+        /// <summary>
+        /// METODOS AUXILIARES
+        /// </summary>
 
         // Nuevo contacto: Control de errores y llamar a repo
         private void NuevoContacto()
@@ -132,6 +145,55 @@ namespace Agenda
             observaciones = observacionesTextBox1.Text;
 
             this.rep.NewContacto(nombre, fechaNacimiento, telefono, observaciones);
+
+            RecargarContactos();
+        }
+
+
+        private void EditarContacto()
+        {
+            int id;
+            string nombre;
+            DateTime fechaNacimiento;
+            int telefono;
+            string observaciones;
+
+            // id
+            id = int.Parse(idTextBox.Text);
+
+            // Nombre
+            nombre = nombreTextBox.Text;
+            if (string.IsNullOrEmpty(nombre))
+            {
+                nombre = "sin_nombre";
+            }
+
+            // Fecha Nacimiento
+            if (string.IsNullOrEmpty(fechaDateTimePicker.Text))
+            {
+                fechaNacimiento = DateTime.Now;
+
+            }
+            else
+            {
+                fechaNacimiento = DateTime.Parse(fechaDateTimePicker.Text);
+            }
+
+            // Telefono
+            if (string.IsNullOrEmpty(telefonoTextBox.Text))
+            {
+                telefono = 0;
+
+            }
+            else
+            {
+                telefono = int.Parse(telefonoTextBox.Text);
+            }
+
+            // Observaciones
+            observaciones = observacionesTextBox1.Text;
+
+            this.rep.EditarContacto(id, nombre, fechaNacimiento, telefono, observaciones);
 
             RecargarContactos();
         }

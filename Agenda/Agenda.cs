@@ -15,13 +15,7 @@ namespace Agenda
 
         private void Agenda_Load(object sender, EventArgs e)
         {
-            DataTable table = rep.ListaContactos();
-
-            // Bind the DataTable to the DataGridView
-            contactosDataGridView.DataSource = table;
-
-            contactosDataGridView.Columns["Observaciones"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
+            RecargarContactos();
         }
 
         // GRID VIEW
@@ -49,7 +43,7 @@ namespace Agenda
             // TODO:UPDATE
 
             // Nuevo Contacto
-            if (string.IsNullOrEmpty(idTextBox.Text)) 
+            if (string.IsNullOrEmpty(idTextBox.Text))
             {
                 NuevoContacto();
             }
@@ -138,6 +132,18 @@ namespace Agenda
             observaciones = observacionesTextBox1.Text;
 
             this.rep.NewContacto(nombre, fechaNacimiento, telefono, observaciones);
+
+            RecargarContactos();
+        }
+
+        private void RecargarContactos()
+        {
+            DataTable table = rep.ListaContactos();
+
+            // Bind the DataTable to the DataGridView
+            contactosDataGridView.DataSource = table;
+
+            contactosDataGridView.Columns["Observaciones"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         // Formulario en ReadOnly
@@ -176,7 +182,6 @@ namespace Agenda
             eliminarButton.Enabled = true;
 
             contactosDataGridView.Enabled = true;
-            contactosDataGridView.Refresh();
         }
 
         private void DeshabilitarBotones()

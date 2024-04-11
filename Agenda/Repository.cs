@@ -113,4 +113,36 @@ internal class Repository
             }
         }
     }
+
+    public void BorrarContacto(int id)
+    {
+        // Si el usuario hace clic en 'Sí', elimina el contacto
+        SqlConnection? connection = null;
+        try
+        {
+            using (connection = Context.OpenSQLConnetion())
+            {
+                string query = "DELETE FROM Agenda.dbo.Contactos WHERE Id = @Id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    command.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("\n¡Contacto eliminado con éxito!\n");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"\n Hubo un problema al eliminar el contacto. {ex.Message}\n");
+        }
+        finally
+        {
+            if (connection != null)
+            {
+                Context.CloseSQLConnection(connection);
+            }
+        }
+    }
 }

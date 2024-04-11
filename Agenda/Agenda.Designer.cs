@@ -156,6 +156,7 @@
             eliminarButton.TabIndex = 11;
             eliminarButton.Text = "Eliminar";
             eliminarButton.UseVisualStyleBackColor = true;
+            eliminarButton.Click += eliminarButton_Click;
             // 
             // modificarButton
             // 
@@ -242,7 +243,6 @@
         private Button nuevoButton;
         private Button eliminarButton;
         private Button modificarButton;
-        private Button button4;
         private Button guardarButton;
         private Button cancelarButton;
         private DataGridView contactosDataGridView;

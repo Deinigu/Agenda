@@ -1,4 +1,6 @@
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 
@@ -55,7 +57,7 @@ namespace Agenda
             {
                 NuevoContacto();
             }
-            else if(!modificarButton.Enabled)
+            else if (!modificarButton.Enabled)
             {
                 EditarContacto();
             }
@@ -74,15 +76,6 @@ namespace Agenda
 
         }
 
-        // Modificar
-        private void modificarButton_Click(object sender, EventArgs e)
-        {
-            DeshabilitarBotones();
-
-            ReiniciarForm();
-            QuitarReadOnly();
-        }
-
         // Nuevo
         private void nuevoButton_Click(object sender, EventArgs e)
         {
@@ -98,6 +91,34 @@ namespace Agenda
             DeshabilitarBotones();
 
             QuitarReadOnly();
+        }
+
+        // Eliminar
+        private void eliminarButton_Click(object sender, EventArgs e)
+        {
+            DeshabilitarBotones();
+
+            if (string.IsNullOrEmpty(idTextBox.Text))
+            {
+                MessageBox.Show("No hay ningún contacto seleccionado.");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show($"¿Estás seguro de que quieres eliminar a {nombreTextBox.Text}?", "Advertencia", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    int id = int.Parse(idTextBox.Text);
+                    this.rep.BorrarContacto(id);
+                }
+                else
+                {
+                    // No hago nada
+                }
+            }
+
+            HabilitarBotones();
+            RecargarContactos();
+
         }
 
         /// <summary>

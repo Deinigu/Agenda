@@ -38,7 +38,7 @@
             telefonoTextBox = new TextBox();
             observacionesLabel = new Label();
             observacionesTextBox1 = new TextBox();
-            anyadirButton = new Button();
+            nuevoButton = new Button();
             eliminarButton = new Button();
             modificarButton = new Button();
             guardarButton = new Button();
@@ -77,11 +77,13 @@
             // 
             nombreTextBox.Location = new Point(222, 103);
             nombreTextBox.Name = "nombreTextBox";
+            nombreTextBox.ReadOnly = true;
             nombreTextBox.Size = new Size(150, 31);
             nombreTextBox.TabIndex = 3;
             // 
             // fechaDateTimePicker
             // 
+            fechaDateTimePicker.Enabled = false;
             fechaDateTimePicker.Format = DateTimePickerFormat.Short;
             fechaDateTimePicker.Location = new Point(222, 147);
             fechaDateTimePicker.Name = "fechaDateTimePicker";
@@ -111,6 +113,7 @@
             // 
             telefonoTextBox.Location = new Point(222, 188);
             telefonoTextBox.Name = "telefonoTextBox";
+            telefonoTextBox.ReadOnly = true;
             telefonoTextBox.Size = new Size(261, 31);
             telefonoTextBox.TabIndex = 7;
             // 
@@ -128,17 +131,19 @@
             observacionesTextBox1.Location = new Point(222, 226);
             observacionesTextBox1.Multiline = true;
             observacionesTextBox1.Name = "observacionesTextBox1";
+            observacionesTextBox1.ReadOnly = true;
             observacionesTextBox1.Size = new Size(520, 134);
             observacionesTextBox1.TabIndex = 9;
             // 
-            // anyadirButton
+            // nuevoButton
             // 
-            anyadirButton.Location = new Point(35, 382);
-            anyadirButton.Name = "anyadirButton";
-            anyadirButton.Size = new Size(112, 34);
-            anyadirButton.TabIndex = 10;
-            anyadirButton.Text = "Añadir";
-            anyadirButton.UseVisualStyleBackColor = true;
+            nuevoButton.Location = new Point(35, 382);
+            nuevoButton.Name = "nuevoButton";
+            nuevoButton.Size = new Size(112, 34);
+            nuevoButton.TabIndex = 10;
+            nuevoButton.Text = "Nuevo";
+            nuevoButton.UseVisualStyleBackColor = true;
+            nuevoButton.Click += nuevoButton_Click;
             // 
             // eliminarButton
             // 
@@ -198,7 +203,7 @@
             Controls.Add(guardarButton);
             Controls.Add(modificarButton);
             Controls.Add(eliminarButton);
-            Controls.Add(anyadirButton);
+            Controls.Add(nuevoButton);
             Controls.Add(observacionesTextBox1);
             Controls.Add(observacionesLabel);
             Controls.Add(telefonoTextBox);
@@ -229,7 +234,7 @@
         private TextBox telefonoTextBox;
         private Label observacionesLabel;
         private TextBox observacionesTextBox1;
-        private Button anyadirButton;
+        private Button nuevoButton;
         private Button eliminarButton;
         private Button modificarButton;
         private Button button4;

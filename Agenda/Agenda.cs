@@ -42,5 +42,19 @@ namespace Agenda
                 observacionesTextBox1.Text = row.Cells["Observaciones"].Value.ToString();
             }
         }
+
+        private void modificarButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void nuevoButton_Click(object sender, EventArgs e)
+        {
+            idTextBox.Text = "";
+            nombreTextBox.Text = "";
+            fechaDateTimePicker.Text = "";
+            telefonoTextBox.Text = "";
+            observacionesTextBox1.Text = "";
+        }
     }
 }

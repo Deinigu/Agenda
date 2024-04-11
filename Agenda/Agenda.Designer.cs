@@ -50,7 +50,7 @@
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new Point(30, 53);
+            idLabel.Location = new Point(35, 59);
             idLabel.Name = "idLabel";
             idLabel.Size = new Size(32, 25);
             idLabel.TabIndex = 0;
@@ -58,15 +58,16 @@
             // 
             // idTextBox
             // 
-            idTextBox.Location = new Point(217, 53);
+            idTextBox.Location = new Point(222, 59);
             idTextBox.Name = "idTextBox";
+            idTextBox.ReadOnly = true;
             idTextBox.Size = new Size(150, 31);
             idTextBox.TabIndex = 1;
             // 
             // nombreLabel
             // 
             nombreLabel.AutoSize = true;
-            nombreLabel.Location = new Point(30, 97);
+            nombreLabel.Location = new Point(35, 103);
             nombreLabel.Name = "nombreLabel";
             nombreLabel.Size = new Size(82, 25);
             nombreLabel.TabIndex = 2;
@@ -74,7 +75,7 @@
             // 
             // nombreTextBox
             // 
-            nombreTextBox.Location = new Point(217, 97);
+            nombreTextBox.Location = new Point(222, 103);
             nombreTextBox.Name = "nombreTextBox";
             nombreTextBox.Size = new Size(150, 31);
             nombreTextBox.TabIndex = 3;
@@ -82,15 +83,16 @@
             // fechaDateTimePicker
             // 
             fechaDateTimePicker.Format = DateTimePickerFormat.Short;
-            fechaDateTimePicker.Location = new Point(217, 141);
+            fechaDateTimePicker.Location = new Point(222, 147);
             fechaDateTimePicker.Name = "fechaDateTimePicker";
             fechaDateTimePicker.Size = new Size(300, 31);
             fechaDateTimePicker.TabIndex = 4;
+            fechaDateTimePicker.Value = new DateTime(2024, 4, 11, 10, 0, 9, 0);
             // 
             // fechaNacimientoLabel
             // 
             fechaNacimientoLabel.AutoSize = true;
-            fechaNacimientoLabel.Location = new Point(30, 141);
+            fechaNacimientoLabel.Location = new Point(35, 147);
             fechaNacimientoLabel.Name = "fechaNacimientoLabel";
             fechaNacimientoLabel.Size = new Size(181, 25);
             fechaNacimientoLabel.TabIndex = 5;
@@ -99,7 +101,7 @@
             // telefonoLabel
             // 
             telefonoLabel.AutoSize = true;
-            telefonoLabel.Location = new Point(29, 182);
+            telefonoLabel.Location = new Point(34, 188);
             telefonoLabel.Name = "telefonoLabel";
             telefonoLabel.Size = new Size(83, 25);
             telefonoLabel.TabIndex = 6;
@@ -107,7 +109,7 @@
             // 
             // telefonoTextBox
             // 
-            telefonoTextBox.Location = new Point(217, 182);
+            telefonoTextBox.Location = new Point(222, 188);
             telefonoTextBox.Name = "telefonoTextBox";
             telefonoTextBox.Size = new Size(261, 31);
             telefonoTextBox.TabIndex = 7;
@@ -115,7 +117,7 @@
             // observacionesLabel
             // 
             observacionesLabel.AutoSize = true;
-            observacionesLabel.Location = new Point(30, 220);
+            observacionesLabel.Location = new Point(35, 226);
             observacionesLabel.Name = "observacionesLabel";
             observacionesLabel.Size = new Size(132, 25);
             observacionesLabel.TabIndex = 8;
@@ -123,7 +125,7 @@
             // 
             // observacionesTextBox1
             // 
-            observacionesTextBox1.Location = new Point(217, 220);
+            observacionesTextBox1.Location = new Point(222, 226);
             observacionesTextBox1.Multiline = true;
             observacionesTextBox1.Name = "observacionesTextBox1";
             observacionesTextBox1.Size = new Size(520, 134);
@@ -131,7 +133,7 @@
             // 
             // anyadirButton
             // 
-            anyadirButton.Location = new Point(30, 376);
+            anyadirButton.Location = new Point(35, 382);
             anyadirButton.Name = "anyadirButton";
             anyadirButton.Size = new Size(112, 34);
             anyadirButton.TabIndex = 10;
@@ -140,7 +142,7 @@
             // 
             // eliminarButton
             // 
-            eliminarButton.Location = new Point(180, 376);
+            eliminarButton.Location = new Point(185, 382);
             eliminarButton.Name = "eliminarButton";
             eliminarButton.Size = new Size(112, 34);
             eliminarButton.TabIndex = 11;
@@ -149,7 +151,7 @@
             // 
             // modificarButton
             // 
-            modificarButton.Location = new Point(326, 376);
+            modificarButton.Location = new Point(331, 382);
             modificarButton.Name = "modificarButton";
             modificarButton.Size = new Size(112, 34);
             modificarButton.TabIndex = 12;
@@ -158,7 +160,7 @@
             // 
             // guardarButton
             // 
-            guardarButton.Location = new Point(743, 376);
+            guardarButton.Location = new Point(748, 382);
             guardarButton.Name = "guardarButton";
             guardarButton.Size = new Size(112, 34);
             guardarButton.TabIndex = 13;
@@ -168,7 +170,7 @@
             // 
             // cancelarButton
             // 
-            cancelarButton.Location = new Point(887, 376);
+            cancelarButton.Location = new Point(892, 382);
             cancelarButton.Name = "cancelarButton";
             cancelarButton.Size = new Size(112, 34);
             cancelarButton.TabIndex = 14;
@@ -184,6 +186,7 @@
             contactosDataGridView.RowTemplate.Height = 33;
             contactosDataGridView.Size = new Size(1339, 307);
             contactosDataGridView.TabIndex = 15;
+            contactosDataGridView.CellClick += contactosDataGridView_CellClick;
             // 
             // Agenda
             // 

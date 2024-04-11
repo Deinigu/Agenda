@@ -76,6 +76,7 @@
             // nombreTextBox
             // 
             nombreTextBox.Location = new Point(222, 103);
+            nombreTextBox.MaxLength = 100;
             nombreTextBox.Name = "nombreTextBox";
             nombreTextBox.ReadOnly = true;
             nombreTextBox.Size = new Size(150, 31);
@@ -112,6 +113,7 @@
             // telefonoTextBox
             // 
             telefonoTextBox.Location = new Point(222, 188);
+            telefonoTextBox.MaxLength = 9;
             telefonoTextBox.Name = "telefonoTextBox";
             telefonoTextBox.ReadOnly = true;
             telefonoTextBox.Size = new Size(261, 31);
@@ -129,6 +131,7 @@
             // observacionesTextBox1
             // 
             observacionesTextBox1.Location = new Point(222, 226);
+            observacionesTextBox1.MaxLength = 500;
             observacionesTextBox1.Multiline = true;
             observacionesTextBox1.Name = "observacionesTextBox1";
             observacionesTextBox1.ReadOnly = true;
@@ -162,6 +165,7 @@
             modificarButton.TabIndex = 12;
             modificarButton.Text = "Modificar";
             modificarButton.UseVisualStyleBackColor = true;
+            modificarButton.Click += modificarButton_Click_1;
             // 
             // guardarButton
             // 
@@ -181,6 +185,7 @@
             cancelarButton.TabIndex = 14;
             cancelarButton.Text = "Cancelar";
             cancelarButton.UseVisualStyleBackColor = true;
+            cancelarButton.Click += cancelarButton_Click;
             // 
             // contactosDataGridView
             // 

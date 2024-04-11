@@ -164,6 +164,7 @@
             guardarButton.TabIndex = 13;
             guardarButton.Text = "Guardar";
             guardarButton.UseVisualStyleBackColor = true;
+            guardarButton.Click += guardarButton_Click;
             // 
             // cancelarButton
             // 
@@ -207,6 +208,7 @@
             Controls.Add(idLabel);
             Name = "Agenda";
             Text = "Form1";
+            Load += Agenda_Load;
             ((System.ComponentModel.ISupportInitialize)contactosDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();

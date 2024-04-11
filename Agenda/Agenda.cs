@@ -19,6 +19,9 @@ namespace Agenda
 
             // Bind the DataTable to the DataGridView
             contactosDataGridView.DataSource = table;
+
+            contactosDataGridView.Columns["Observaciones"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
 
         private void guardarButton_Click(object sender, EventArgs e)

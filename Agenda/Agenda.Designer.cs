@@ -162,6 +162,7 @@
             modificarButton.TabIndex = 12;
             modificarButton.Text = "Modificar";
             modificarButton.UseVisualStyleBackColor = true;
+            modificarButton.Click += modificarButton_Click_1;
             // 
             // guardarButton
             // 
@@ -181,6 +182,7 @@
             cancelarButton.TabIndex = 14;
             cancelarButton.Text = "Cancelar";
             cancelarButton.UseVisualStyleBackColor = true;
+            cancelarButton.Click += cancelarButton_Click;
             // 
             // contactosDataGridView
             // 

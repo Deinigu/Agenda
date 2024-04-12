@@ -91,7 +91,7 @@ internal class Repository
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.CommandType= CommandType.StoredProcedure;
+                    command.CommandType = CommandType.StoredProcedure;
 
                     command.Parameters.AddWithValue("@Id", id);
                     command.Parameters.AddWithValue("@Nombre", nombre);

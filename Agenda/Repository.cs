@@ -18,8 +18,9 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Agenda.dbo.Contactos", connection))
+                using (SqlCommand command = new SqlCommand("MostrarContactos", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     SqlDataAdapter data = new SqlDataAdapter(command);
                     data.Fill(dt_ListaContactos);
                 }
@@ -49,10 +50,11 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-                string query = "INSERT INTO Agenda.dbo.Contactos (Nombre, FechaNacimiento, Telefono, Observaciones) VALUES (@Nombre, @FechaNacimiento, @Telefono, @Observaciones)";
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("NuevoContacto", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
+
                     command.Parameters.AddWithValue("@Nombre", nombre);
                     command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento);
                     command.Parameters.AddWithValue("@Telefono", telefono);

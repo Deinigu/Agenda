@@ -87,10 +87,12 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-                string query = "UPDATE Agenda.dbo.Contactos SET Nombre = @Nombre, FechaNacimiento = @FechaNacimiento, Telefono = @Telefono, Observaciones = @Observaciones WHERE Id = @Id";
+                string query = "EditarContacto";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.CommandType= CommandType.StoredProcedure;
+
                     command.Parameters.AddWithValue("@Id", id);
                     command.Parameters.AddWithValue("@Nombre", nombre);
                     command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento);
@@ -124,7 +126,7 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-                string query = "BorrarUsuario";
+                string query = "BorrarContacto";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

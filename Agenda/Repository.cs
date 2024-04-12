@@ -50,8 +50,8 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-
-                using (SqlCommand command = new SqlCommand("NuevoContacto", connection))
+                string query = "NuevoContacto";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
@@ -124,10 +124,12 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-                string query = "DELETE FROM Agenda.dbo.Contactos WHERE Id = @Id";
+                string query = "BorrarUsuario";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
+
                     command.Parameters.AddWithValue("@Id", id);
                     command.ExecuteNonQuery();
                 }

@@ -18,8 +18,9 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Agenda.dbo.Contactos", connection))
+                using (SqlCommand command = new SqlCommand("MostrarContactos", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     SqlDataAdapter data = new SqlDataAdapter(command);
                     data.Fill(dt_ListaContactos);
                 }
@@ -49,10 +50,11 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-                string query = "INSERT INTO Agenda.dbo.Contactos (Nombre, FechaNacimiento, Telefono, Observaciones) VALUES (@Nombre, @FechaNacimiento, @Telefono, @Observaciones)";
-
+                string query = "NuevoContacto";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
+
                     command.Parameters.AddWithValue("@Nombre", nombre);
                     command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento);
                     command.Parameters.AddWithValue("@Telefono", telefono);
@@ -85,10 +87,12 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-                string query = "UPDATE Agenda.dbo.Contactos SET Nombre = @Nombre, FechaNacimiento = @FechaNacimiento, Telefono = @Telefono, Observaciones = @Observaciones WHERE Id = @Id";
+                string query = "EditarContacto";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
+
                     command.Parameters.AddWithValue("@Id", id);
                     command.Parameters.AddWithValue("@Nombre", nombre);
                     command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento);
@@ -122,10 +126,12 @@ internal class Repository
         {
             using (connection = Context.OpenSQLConnetion())
             {
-                string query = "DELETE FROM Agenda.dbo.Contactos WHERE Id = @Id";
+                string query = "BorrarContacto";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
+
                     command.Parameters.AddWithValue("@Id", id);
                     command.ExecuteNonQuery();
                 }

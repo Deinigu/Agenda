@@ -116,6 +116,7 @@ namespace Agenda
                 }
             }
 
+            ReiniciarForm();
             HabilitarBotones();
             RecargarContactos();
 

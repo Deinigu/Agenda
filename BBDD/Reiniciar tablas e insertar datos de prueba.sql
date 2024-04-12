@@ -36,9 +36,13 @@ INSERT INTO [dbo].[Contactos]
            ,[Telefono]
            ,[Observaciones])
      VALUES
-           ('Diego','2002/07/18',608310124,'Soy yo! :D'),
-		   ('Esther','2002/10/23',2122022,'Una máquina.'),
-		   ('Lucas','2002/02/27',12345678,'Es mi amigo, el Lucas.');
+           ('Diego','2002/07/18',608310124,'¡Soy yo! :D'),
+		   ('Esther','2002/10/23',2122022,'Una máquina'),
+		   ('Lucas','2002/02/27',12345678,'Mi amigo el Lucas'),
+		   ('Manolo','1980/04/30',687902312,'Vecino'),
+		   ('Félix','1999/07/02',690112233,'Gym coach'),
+		   ('Ignacio','1990/06/03',600320124,'Tutor Avanade'),
+		   ('Sergio','1994/12/27',650902132,'Tutor Avanade');
 GO
 
 
